@@ -1,6 +1,6 @@
 FROM node
 RUN npm xmas
-RUN sleep 1
+RUN sleep 3
 RUN date
-CMD echo Hello
+CMD echo Hello Ryan
 #sad
