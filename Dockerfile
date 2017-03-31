@@ -1,6 +1,6 @@
 FROM node
 RUN npm xmas
 RUN sleep 5
-RUN echo date
+RUN date
 CMD date
 #sad
