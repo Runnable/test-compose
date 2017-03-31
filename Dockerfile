@@ -1,2 +1,3 @@
 FROM node
-CMD date
+RUN echo Hello Kahn
+CMD echo Goodbye Kahn
