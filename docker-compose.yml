@@ -13,7 +13,7 @@ services:
     environment:
       - MONGODB_HOST=db
   api: 
-    build: .
+    image: node
     ports:
       - "3000:3000"
     
