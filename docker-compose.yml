@@ -13,7 +13,7 @@ services:
     environment:
       - MONGODB_HOST=db
   api: 
-    build: git@github.com/Runnable/node-starter
+    build: .
     ports:
       - "3000:3000"
     
