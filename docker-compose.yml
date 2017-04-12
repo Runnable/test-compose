@@ -20,5 +20,10 @@ services:
     build: git@github.com/Runnable/node-starter#a3
     ports:
       - "3000:3000"
+  
+  api3: 
+    build: git@github.com/Runnable/node-starter
+    ports:
+      - "3000:3000"
     
     
