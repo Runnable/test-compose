@@ -16,4 +16,5 @@ services:
     image: node
     ports:
       - "3000:3000"
-
+  jalikatu:
+    image: elasticsearch
