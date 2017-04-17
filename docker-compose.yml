@@ -6,6 +6,7 @@ services:
       - "80:80"
     links:
       - "api"
+    command: wait-for-it.sh api && npm start
     environment:
       - API_HOST=api:3000
   db:
@@ -25,6 +26,7 @@ services:
       - "3000:3000"
     links:
       - "db"
+    command: wait-for-it.sh db && npm start
     environment:
       - MONGODB_HOST=db
   e2e:
@@ -38,7 +40,7 @@ services:
     links:
       - "web"
       - "chrome"
-    command: npm test
+    command: wait-for-it.sh web && npm test
     environment:
       - WEB_URL=http://web
       - NODE_ENV=docker
