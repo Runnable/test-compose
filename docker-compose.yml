@@ -16,4 +16,8 @@ services:
     image: node
     ports:
       - "3000:3000"
+  nathan:
+    image: elasticsearch
+    ports:
+      - "2300:2300"
 
