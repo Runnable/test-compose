@@ -1,20 +1,44 @@
 version: '2'
 services:
-  db:
-    image: redis
-    ports:
-      - "27017:27017"
   web:
     build: .
+    ports:
+      - "80:80"
+    links:
+      - "api"
+    environment:
+      - API_HOST=api:3000
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+  chrome:
+    image: selenium/standalone-chrome
+    links:
+      - "web"
+    ports:
+      - "4444:4444"
+  api:
+    build: 
+      context: git@github.com:DockerCon2017/api.git
     ports:
       - "3000:3000"
     links:
       - "db"
     environment:
       - MONGODB_HOST=db
-  api: 
-    image: node
-    ports:
-      - "3000:3000"
-  jalikatu:
-    image: elasticsearch
+  e2e:
+    build: 
+      context: git@github.com:DockerCon2017/e2e.git
+    depends_on:
+      - db
+      - api
+      - web
+      - chrome
+    links:
+      - "web"
+      - "chrome"
+    command: npm test
+    environment:
+      - WEB_URL=http://web
+      - NODE_ENV=docker
