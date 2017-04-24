@@ -21,7 +21,7 @@ services:
       - "4444:4444"
   api:
     build: 
-      context: git@github.com:DockerCon2017/api.git
+      context: git@github.com:Runnable/api.git
     ports:
       - "3000:3000"
     links:
@@ -31,7 +31,7 @@ services:
       - MONGODB_HOST=db
   e2e:
     build: 
-      context: git@github.com:DockerCon2017/e2e.git
+      context: git@github.com:Runnable/e2e.git
     depends_on:
       - db
       - api
