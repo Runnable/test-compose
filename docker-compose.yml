@@ -1,20 +1,46 @@
 version: '2'
 services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    links:
+      - "api"
+    command: wait-for-it.sh api && npm start
+    environment:
+      - API_HOST=api:3000
   db:
     image: mongo
     ports:
       - "27017:27017"
-  web:
-    build: .
+  chrome:
+    image: selenium/standalone-chrome
+    links:
+      - "web"
+    ports:
+      - "4444:4444"
+  api:
+    build: 
+      context: git@github.com:Runnable/api.git
     ports:
       - "3000:3000"
     links:
       - "db"
+    command: wait-for-it.sh db && npm start
     environment:
       - MONGODB_HOST=db
-  api: 
-    build: git@github.com/Runnable/node-starter
-    ports:
-      - "3000:3000"
-    
-    
+  e2e:
+    build: 
+      context: git@github.com:Runnable/e2e.git
+    depends_on:
+      - db
+      - api
+      - web
+      - chrome
+    links:
+      - "web"
+      - "chrome"
+    command: wait-for-it.sh web && npm test
+    environment:
+      - WEB_URL=http://web
+      - NODE_ENV=docker
