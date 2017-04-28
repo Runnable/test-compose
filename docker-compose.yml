@@ -5,7 +5,7 @@ services:
     ports:
       - "80:80"
     links:
-      - "api"
+      - "db"
     command: npm start
     environment:
       - API_HOST=api:3000
