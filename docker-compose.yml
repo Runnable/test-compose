@@ -13,4 +13,21 @@ services:
     image: mongo
     ports:
       - "27017:27017"
-
+  web2:
+    build:
+      context: git@github.com:Runnable/rails-starter.git
+    ports:
+      - "3000"
+    links:
+      - "db"
+    environment:
+      - DATABASE_URL=postgres://postgres@db/postgres
+    command: ["bash", "wait-for-postgres-then-run.sh"]
+  db1:
+    image: mongo
+    ports:
+      - "27017:27017"
+  db2:
+    image: postgres
+    ports:
+      - "5432:5432"
