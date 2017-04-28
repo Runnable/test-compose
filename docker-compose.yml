@@ -16,5 +16,9 @@ services:
   db2:
     image: redis
     ports:
+      - "27017:27017" 
+  db3:
+    image: nginx
+    ports:
       - "27017:27017"
 
