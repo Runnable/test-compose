@@ -12,5 +12,9 @@ services:
   db:
     image: mongo
     ports:
+      - "27017:27017"  
+  db2:
+    image: mongo
+    ports:
       - "27017:27017"
 
