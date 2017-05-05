@@ -6,7 +6,7 @@ services:
       - "27017:27017"
   web:
     build: .
-    command: ping -c 10 google.com && ping $MONGODB_HOST
+    command: ping -c 10 google.com && ping db
     ports:
       - "3000:3000"
     links:
@@ -15,7 +15,7 @@ services:
       - MONGODB_HOST=db
   web2:
     image: node
-    command: echo "Start" && sleep 15 && echo "About to start boss" && ping $MONGODB_HOST
+    command: echo "Start" && sleep 15 && echo "About to start boss" && ping db
     ports:
       - "3000:3000"
     environment:
@@ -24,7 +24,7 @@ services:
       - "db"
   web3:
     image: node
-    command: ping $MONGODB_HOST
+    command: ping db
     ports:
       - "3000:3000"
     links:
