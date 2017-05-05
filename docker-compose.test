@@ -6,7 +6,7 @@ services:
       - "27017:27017"
   web:
     build: .
-    command: ping db
+    command: while true; do ping -c 1 db && sleep 1; done;
     ports:
       - "3000:3000"
     links:
