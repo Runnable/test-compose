@@ -15,7 +15,7 @@ services:
       - MONGODB_HOST=db
   web2:
     image: node
-    command: sleep 15 && echo "About to start boss" && ping $MONGODB_HOST
+    command: echo "Start" && sleep 15 && echo "About to start boss" && ping $MONGODB_HOST
     ports:
       - "3000:3000"
     environment:
