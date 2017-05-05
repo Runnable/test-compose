@@ -6,7 +6,7 @@ services:
       - "27017:27017"
   web:
     build: .
-    command: echo TESTS
+    command: ping $MONGODB_HOST
     ports:
       - "3000:3000"
     links:
