@@ -20,6 +20,8 @@ services:
       - "3000:3000"
     environment:
       - MONGODB_HOST=db
+    links:
+      - "db"
   web3:
     image: node
     command: ping $MONGODB_HOST
