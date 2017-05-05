@@ -6,10 +6,17 @@ services:
       - "27017:27017"
   web:
     build: .
-    command: sleep 9999
+    command: ping $MONGODB_HOST
     ports:
       - "3000:3000"
     links:
       - "db"
     environment:
       - MONGODB_HOST=db
+  web2:
+    build: .
+    command: ping db
+    ports:
+      - "3000:3000"
+    links:
+      - "db"
