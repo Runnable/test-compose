@@ -8,3 +8,7 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+  serv1:
+    build: git@github.com/Runnable/test-compose
+  serv2:
+    build: git@github.com/Runnable/test-compose
