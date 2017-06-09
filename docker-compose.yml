@@ -19,20 +19,5 @@ services:
   serv5:
     build: git@github.com/Runnable/test-compose
   serv6:
-    build: git@github.com/Runnable/test-compose=
-mysql:
-   hostname: mysql
-   image: mysql:5.6
-   networks:
-     internal:
-       aliases:
-        - mysql.docker
-        - dev.mysql.docker
-   environment:
-     - MY_CNF_PERFORMANCE_SCHEMA=OFF
-     - MY_CNF_QUERY_CACHE_TYPE=0
-     - MY_CNF_QUERY_CACHE_SIZE=0
-     - MYSQL_USER=admin
-     - MYSQL_PASS=123456
-     - MYSQL_ROOT_PASSWORD=123456
-     - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    build: git@github.com/Runnable/test-compose
+
