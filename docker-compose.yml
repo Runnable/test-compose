@@ -21,4 +21,4 @@ services:
   serv6:
     build: git@github.com/Runnable/test-compose
   serv7:
-    build: git@github.com/Runnable/test-compose
+    build: git@github.com/Runnable/test-compose3
