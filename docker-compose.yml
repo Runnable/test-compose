@@ -12,3 +12,14 @@ services:
     build: git@github.com/Runnable/test-compose
   serv2:
     build: git@github.com/Runnable/test-compose
+  serv3:
+    build: git@github.com/Runnable/test-compose
+  serv4:
+    build: git@github.com/Runnable/test-compose
+  serv5:
+    build: git@github.com/Runnable/test-compose
+  serv6:
+    build: git@github.com/Runnable/test-compose
+  serv7:
+    build: git@github.com/Runnable/test-compose
+aqd
