@@ -22,4 +22,3 @@ services:
     build: git@github.com/Runnable/test-compose
   serv7:
     build: git@github.com/Runnable/test-compose
-aqd
