@@ -11,7 +11,7 @@ services:
   serv1:
     build: git@github.com/Runnable/test-compose
   serv2:
-    build: git@github.com/Runnable/test-compose
+    build: git@github.com/Runnable/node-starter
   serv3:
     build: git@github.com/Runnable/test-compose
   serv4:
